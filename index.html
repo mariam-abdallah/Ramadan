@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسابقة رمضان</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>مسابقة رمضان</h1>
+        <p>أدر العجلة وجرب حظك واكسب معنا</p>
+        <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني">
+        <button onclick="startGame()">ابدأ اللعب</button>
+        <div class="wheel-container">
+            <canvas id="wheelCanvas" width="400" height="400"></canvas>
+            <div class="pointer"></div>
+        </div>
+        <button id="spinButton" onclick="spinWheel()">تدوير العجلة</button>
+        <audio id="spinSound" src="spin-sound.mp3"></audio>
+    </div>
+    
+    <div id="prizePopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p id="prizeText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
