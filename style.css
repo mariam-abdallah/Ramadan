@@ -1,75 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Cairo', sans-serif;
     text-align: center;
-    background-color: #F5E3C3;
-    color: #8B5A2B;
+    background-color: #121212; /* خلفية داكنة */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* جعل المحتوى في منتصف الصفحة */
 }
 
 .container {
-    margin-top: 50px;
+    background: #1E1E1E; /* خلفية داكنة */
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
 }
 
+/* تنسيق العنوان */
 h1 {
-    color: #D4AF37;
+    color: #FFD700; /* لون ذهبي */
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
+/* 🔹 تنسيق الأزرار */
 button {
-    background-color: #004C5C;
+    background: linear-gradient(45deg, #FFD700, #FF5733);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;
+    width: 100%;
 }
 
 button:hover {
-    background-color: #002D3A;
+    background: linear-gradient(45deg, #FF5733, #FFD700);
+    transform: scale(1.05);
+}
+
+/* تنسيق حقل البريد الإلكتروني */
+input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #222;
+    color: white;
 }
 
 .wheel-container {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    max-width: 400px;
     margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#spinButton {
+    position: absolute;
+    top: 50%; /* ✅ ضع الزر في منتصف العجلة */
+    left: 50%;
+    transform: translate(-50%, -50%); /* ✅ تأكيد أنه في المركز */
+    background: linear-gradient(45deg, #FFD700, #FF5733);
+    color: white;
+    border: none;
+    padding: 12px 18px; /* ✅ تعديل الحجم ليكون متناسقًا */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%; /* ✅ جعله دائريًا */
+    width: 60px; /* ✅ ضبط حجم الزر */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+    z-index: 10;
+    text-align: center;
+}
+
+#spinButton:hover {
+    background: linear-gradient(45deg, #FF5733, #FFD700);
+    transform: translate(-50%, -50%) scale(1.1); /* ✅ تأثير التكبير عند التحويم */
+}
+
+#spinButton {
+    position: absolute; /* يجعل الزر فوق العجلة */
+    top: 50%; /* يضع الزر في منتصف العجلة */
+    left: 50%;
+    transform: translate(-50%, -50%); /* يضبط موقعه ليكون بالضبط في المنتصف */
+    background: linear-gradient(45deg, #FFD700, #FF5733);
+    color: white;
+    border: none;
+    padding: 10px 15px; /* ✅ تصغير الزر */
+    cursor: pointer;
+    font-size: 14px; /* ✅ تصغير النص داخل الزر */
+    font-weight: bold;
+    border-radius: 50%; /* ✅ يجعل الزر دائريًا مثل العجلة */
+    width: 90px; /* ✅ تصغير عرض الزر */
+    height: 90px; /* ✅ تصغير ارتفاع الزر */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+    z-index: 10; /* يجعل الزر فوق العجلة */
+    text-align: center;
+}
+
+#spinButton:hover {
+    background: linear-gradient(45deg, #FF5733, #FFD700);
+    transform: translate(-50%, -50%) scale(1.1); /* تأثير تكبير عند التحويم */
+}
+
+
 
 canvas {
+    width: 100%;
+    max-width: 300px;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5);
 }
 
+/* 🔹 نقل السهم إلى أعلى العجلة */
 .pointer {
     position: absolute;
-    top: 50%;
+    top: -10px; /* نقل السهم إلى أعلى العجلة */
     left: 50%;
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 30px solid red;
-    transform: translate(-50%, -150%);
+    border-top: 30px solid red;
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
+/* ✅ تنسيق عام للنوافذ المنبثقة */
 .popup {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: #222;
     padding: 20px;
-    box-shadow: 0px 0px 10px gray;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-}
-
-.popup-content {
     text-align: center;
+    max-width: 80%;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000;
 }
 
+/* ✅ تصميم زر إغلاق النافذة */
 .close {
     position: absolute;
     top: 10px;
     right: 15px;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
+    color: #FFD700;
 }

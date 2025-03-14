@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مسابقة رمضان</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>مسابقة رمضان</h1>
         <p>أدر العجلة وجرب حظك واكسب معنا</p>
         <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني">
-        <button onclick="startGame()">ابدأ اللعب</button>
+
         <div class="wheel-container">
             <canvas id="wheelCanvas" width="400" height="400"></canvas>
             <div class="pointer"></div>
+            <button id="spinButton" onclick="spinWheel()">أدر العجلة</button> <!-- ✅ الزر في المنتصف -->
         </div>
-        <button id="spinButton" onclick="spinWheel()">تدوير العجلة</button>
-        <audio id="spinSound" src="spin-sound.mp3"></audio>
+
+        <audio id="spinSound" src="spin-sound.mp3.wav"></audio>
     </div>
     
     <div id="prizePopup" class="popup">
@@ -26,6 +27,14 @@
             <p id="prizeText"></p>
         </div>
     </div>
+    <!-- ✅ نافذة منبثقة للتنبيهات -->
+<div id="alertPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeAlertPopup()">&times;</span>
+        <p id="alertMessage"></p>
+    </div>
+</div>
+
 
     <script src="script.js"></script>
 </body>
