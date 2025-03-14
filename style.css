@@ -11,7 +11,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* جعل المحتوى في منتصف الصفحة */
-    overflow: hidden;
+    overflow: hidden !important;
+    position: fixed;
 }
 
 .container {
