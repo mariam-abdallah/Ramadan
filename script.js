@@ -157,3 +157,7 @@ function showAlertPopup(message) {
 function closeAlertPopup() {
     document.getElementById("alertPopup").style.display = "none";
 }
+// ✅ تأكد أن الصفحة تبدأ من الأعلى عند التحميل
+window.onload = function () {
+    window.scrollTo(0, 0);
+};

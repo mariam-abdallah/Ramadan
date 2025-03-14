@@ -179,3 +179,23 @@ canvas {
     cursor: pointer;
     color: #FFD700;
 }
+/* ✅ تأكد من أن الصفحة تبدأ من الأعلى على الموبايل */
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* ✅ يضمن أن المحتوى يبدأ من الأعلى */
+        align-items: center;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .container {
+        margin-top: 20px; /* ✅ يضيف مسافة بسيطة من الأعلى */
+        width: 95%;
+    }
+
+    .wheel-container {
+        margin-top: 10px; /* ✅ تقليل المسافة العلوية للعجلة */
+    }
+}
